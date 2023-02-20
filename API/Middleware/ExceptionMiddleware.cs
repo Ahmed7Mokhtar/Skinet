@@ -36,6 +36,7 @@ namespace API.Middleware
                              ex.Message, ex.StackTrace.ToString())
                         : new ApiException((int)HttpStatusCode.InternalServerError);
 
+                // for camelcase properties 
                 var options = new JsonSerializerOptions{PropertyNamingPolicy = JsonNamingPolicy.CamelCase};
 
                 var json = JsonSerializer.Serialize(response, options);
