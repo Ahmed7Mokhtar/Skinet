@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { delay, map, Observable } from 'rxjs';
 import { IBrand } from '../shared/Models/brand';
 import { IPagination } from '../shared/Models/pagination';
+import { IProduct } from '../shared/Models/product';
 import { IType } from '../shared/Models/productType';
 import { ShopParams } from '../shared/Models/shopParams';
 
@@ -25,6 +26,10 @@ export class ShopService {
       params = params.append('typeId', shopParams.typeId.toString());
     }
 
+    if(shopParams.search) {
+      params = params.append('search', shopParams.search);
+    }
+
     params = params.append('sort', shopParams.sort);
     params = params.append('pageIndex', shopParams.pageNumber.toString());
     params = params.append('pageSize', shopParams.pageSize.toString());
@@ -35,6 +40,10 @@ export class ShopService {
                     return response.body;
                   })
                 );
+  }
+
+  getProduct(id:number) {
+    return this._http.get<IProduct>(this.baseUrl + 'products/' + id);
   }
 
   getBrands() : Observable<IBrand[]> {
