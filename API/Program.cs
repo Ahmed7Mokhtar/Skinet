@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using API.Helpers;
 using API.Middleware;
 using API.Extensions;
+using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<StoreContext>(opt => {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
+
+builder.Services.AddSingleton<IConnectionMultiplexer>(c =>
+{
+    var configuraion = ConfigurationOptions.Parse(builder.Configuration
+                .GetConnectionString("Redis"), true);
+    return ConnectionMultiplexer.Connect(configuraion);
 });
 
 
