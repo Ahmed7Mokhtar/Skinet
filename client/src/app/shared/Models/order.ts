@@ -9,7 +9,7 @@ export interface IOrderToCreate {
 export interface IOrderItem {
     productId: number;
     productName: string;
-    prictureUrl: string;
+    pictureUrl: string;
     price: number;
     quantity: number;
 }
