@@ -28,6 +28,7 @@ namespace API.Controllers
             _mapper = mapper;
         }
 
+        [Cahced(600)]
         [HttpGet]
         public async Task<ActionResult<Pagination<ProductToReturnDto>>> GetProducts([FromQuery]ProductSpecParams productParams) 
         {
@@ -45,6 +46,7 @@ namespace API.Controllers
                                                         totalItems, data));
         }
 
+        [Cahced(600)]
         [HttpGet("{id}")]
         [ProducesResponseType(statusCode:200)]
         [ProducesResponseType(typeof(ApiResponse), statusCode:404)]
@@ -59,12 +61,14 @@ namespace API.Controllers
             return _mapper.Map<Product, ProductToReturnDto>(product);
         }
 
+        [Cahced(600)]
         [HttpGet("brands")]
         public async Task<ActionResult<IReadOnlyList<ProductBrand>>> GetProductBrands()
         {
             return Ok(await _ProductBrandRepo.LisAllAsync());
         }
 
+        [Cahced(600)]
         [HttpGet("types")]
         public async Task<ActionResult<IReadOnlyList<ProductType>>> GetProductTypes()
         {
