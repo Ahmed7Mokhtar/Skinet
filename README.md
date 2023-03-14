@@ -1,4 +1,5 @@
 #Description:
+
   =Full-Stack E-Commerce Website using .NET Core for the Back-End, Angular for the Front-end, Stripe for accepting payment and Redis for cashing.
     #Back-End:
       -Entity Framework Core With SQL Server.
