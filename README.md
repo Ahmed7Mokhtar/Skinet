@@ -29,3 +29,7 @@
       -Validation in both the server and the client sides.
       
       -BreadCrumb for displaying routes for different pages(components).
+#
+![Screenshot (15)](https://user-images.githubusercontent.com/55771788/232386437-b5b53a58-e928-4089-b9e0-1d05f592d312.png)
+#
+![Screenshot (16)](https://user-images.githubusercontent.com/55771788/232386540-277701f5-1fc5-4860-8ff3-cf48e7df615f.png)
